@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f8cdda, #3e0e54);
+            display: flex;
+            justify-content: center;   
+            align-items: flex-start;   
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0;           
+            overflow-y: auto;
+        }
+
+        form {
+            background: #ffe6e6;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+            width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=number],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type=radio],
+        input[type=checkbox] {
+            margin-right: 5px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .row input {
+            flex: 1;
+        }
+        input[type=submit],
+        input[type=reset] {
+            width: 48%;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        input[type=submit] {
+            background-color: #5917a0;
+        }
+        input[type=submit]:hover {
+            background-color: #4a1288;
+        }
+        input[type=reset] {
+            background-color: #db8c25;
+        }
+        input[type=reset]:hover {
+            background-color: #c97a1f;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="form.php" method="post">
+        <h2>Student Registration Form</h2>
+        
+        <label>Roll No:</label>
+        <input type="text" name="rollno" required placeholder="Enter your roll no.">
+        
+        <label>Student Name:</label>
+        <div class="row">
+            <input type="text" name="firstname" placeholder="First Name" required>
+            <input type="text" name="lastname" placeholder="Last Name" required>
+        </div>
+        
+        <label>Father's Name:</label>
+        <input type="text" name="fathername" required placeholder="Enter your father's name">
+        
+        <label>Date of Birth:</label>
+        <div class="row">
+            <input type="text" name="day" placeholder="Day" maxlength="2">
+            <input type="text" name="month" placeholder="Month" maxlength="2">
+            <input type="text" name="year" placeholder="Year" maxlength="4">
+        </div>
+        <small>(DD-MM-YYYY)</small><br>
+        
+        <label>Mobile No:</label>
+        <div class="row">
+            <input type="text" value="+91" readonly style="width:60px;">
+            <input type="number" name="mobile" placeholder="Enter number" required>
+        </div>
+        
+        <label>Email ID:</label>
+        <input type="email" name="email" required>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        
+        <br><label>Department:</label><br>
+        <input type="checkbox" name="dept" value="CSE" onclick="onlyOne(this)"> CSE
+        <input type="checkbox" name="dept" value="IT" onclick="onlyOne(this)"> IT
+        <input type="checkbox" name="dept" value="ECE" onclick="onlyOne(this)"> ECE
+        <input type="checkbox" name="dept" value="Civil" onclick="onlyOne(this)"> Civil
+        <input type="checkbox" name="dept" value="Mech" onclick="onlyOne(this)"> Mech
+        
+        <br><label>Course:</label>
+        <select name="course" required>
+            <option value="" disabled selected>Select Course</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="B.E">B.E</option>
+            <option value="M.Tech">M.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="Diploma">Diploma</option>
+        </select>
+
+        <br><label for="fileselect1">Student Photo:</label>
+        <input type="file" name="photo" accept="image/*">
+        
+        <br><label>City:</label>
+        <input type="text" name="Mycity" required>
+        
+        <label>Address:</label><br>
+        <textarea rows="5" cols="30" name="MyAddress" required></textarea>
+
+        <div class="btn-group">
+            <input type="reset" value="Reset">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+
+    <script>
+        function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('dept');
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false;
+            });
+        }
+    </script>
+</body>
+</html>
