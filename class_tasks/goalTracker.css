@@ -1,0 +1,117 @@
+/*Stylesheet for Goal Tracker Application*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    background-color: #007acc;
+    color: white;
+    padding: 15px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.card {
+    background: white;
+    width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+.card h2 {
+    margin-bottom: 20px;
+    color: #007acc;
+}
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-size: 15px;
+}
+input:focus {
+    border-color: #007acc;
+    outline: none;
+}
+button {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #005f99;
+}
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+}
+footer p {
+    margin: 5px 0;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+header p {
+    margin: 5px 0 0;
+    font-size: 18px;
+    font-weight: 300;
+}
+footer {
+    text-align: center;
+    padding: 15px 10px;
+    background: #007acc;
+    color: white;
+}
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+footer p a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+footer p a:hover {
+    text-decoration: underline;
+}
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+/*progressCircle*/
+.progress-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#007acc 0% , #007acc var(--progress), #e0e0e0 var(--progress), #a33b3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

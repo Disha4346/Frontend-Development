@@ -1,0 +1,67 @@
+<!--Task 3: Step Goal Tracker
+Scenario:
+
+A smartwatch dashboard shows step goal progress.
+
+Requirements:
+User enters steps
+
+Use comparison + ternary operators:
+
+steps >= 10,000 → "Goal Achieved"
+
+else → "Keep Going'
+include a progress css circle too.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="goalTracker.css">
+    <title>Step Goal Tracker</title>
+    <script>
+        function trackSteps() {
+            const steps = parseInt(document.getElementById('steps').value);
+
+            if (steps < 0 || isNaN(steps)) {
+                document.getElementById('stepResult').innerText = "Please enter a valid number of steps!";
+                return;
+            }
+            const message=steps>=10000?"🎉 Goal Achieved ! You have done a great job!":"🚶 Keep Going! You can do it!";
+            const message2=steps==999?"Almost there! Just one more step to reach your goal!":
+                            (steps >= 10000 ? "🎉 Goal Achieved! Great job!" : "🚶 Keep Going! You can do it!");
+
+            document.getElementById('stepResult').innerText = message;
+            const progress = Math.min(steps / 10000, 1) * 100;
+            document.getElementById('progressCircle').style.setProperty('--progress', progress + '%');
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>👣 Step Goal Tracker</h1>
+        <p>Track your daily step goal progress</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Step Goal Tracker</h2>
+
+            <label for="steps">Enter Steps</label>
+            <input type="number" id="steps" placeholder="Enter number of steps">
+
+            <button onclick="trackSteps()">Track Steps</button>
+
+            <h3 id="stepResult"></h3>
+            <div class="progress-circle" id="progressCircle"></div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Step Tracker
+    </footer>
+
+</body>
+</html>
